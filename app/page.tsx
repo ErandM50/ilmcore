@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* Hero Section - Matching Auth Page Left Side */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <NeuralNetwork />
+        {/* <NeuralNetwork /> */}
 
         <motion.div
           style={{ y, opacity }}
@@ -111,12 +111,12 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-8"
             >
-              <button className="group px-8 py-3 bg-white/10 backdrop-blur border border-white/20 text-white font-light rounded-xl hover:bg-white/20 transition-all duration-300 flex items-center space-x-2">
+              <a href="#contact" className="px-10 py-3.5 bg-transparent backdrop-blur border border-white/10 text-white font-extralight rounded-full hover:bg-white/5 hover:border-white/20 transition-all duration-300 inline-flex items-center justify-center">
+                <span>Contact Us</span>
+              </a>
+              <button className="group px-10 py-3.5 bg-transparent backdrop-blur border border-white/10 text-white font-extralight rounded-full hover:bg-white/5 hover:border-white/20 transition-all duration-300 flex items-center space-x-2">
                 <span>Learn More</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="px-8 py-3 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 text-white font-light rounded-xl hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Contact Us
               </button>
             </motion.div>
           </div>
@@ -288,7 +288,7 @@ export default function Home() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors font-extralight"
+                    className="w-full px-4 py-3 bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors font-thin"
                     placeholder="Your name"
                   />
                 </div>
@@ -300,7 +300,7 @@ export default function Home() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors font-extralight"
+                    className="w-full px-4 py-3 bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors font-thin"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -312,14 +312,14 @@ export default function Home() {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors resize-none font-extralight"
+                    className="w-full px-4 py-3 bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors resize-none font-thin"
                     placeholder="Tell us about your institution and goals..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 text-white font-light rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="w-full px-8 py-4 bg-white/5 backdrop-blur border border-white/20 text-white font-thin rounded-full hover:bg-white/10 hover:border-white/30 transition-all duration-300"
                 >
                   Send Message
                 </button>
@@ -334,32 +334,32 @@ export default function Home() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-2xl p-8">
-                <h3 className="text-2xl font-extralight text-white mb-6">Contact Information</h3>
+              <div className="bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-2xl p-8">
+                <h3 className="text-2xl font-thin text-white mb-6">Contact Information</h3>
 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <Mail className="w-5 h-5 text-indigo-400/70 mt-1" />
                     <div>
-                      <p className="text-sm font-extralight text-slate-400 mb-1">Email</p>
-                      <p className="text-white font-extralight">erand@ilmcore.com</p>
-                      <p className="text-white font-extralight">isuf@ilmcore.com</p>
+                      <p className="text-sm font-thin text-slate-400 mb-1">Email</p>
+                      <p className="text-white font-thin">erand@ilmcore.com</p>
+                      <p className="text-white font-thin">isuf@ilmcore.com</p>
                     </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
                     <MapPin className="w-5 h-5 text-indigo-400/70 mt-1" />
                     <div>
-                      <p className="text-sm font-extralight text-slate-400 mb-1">Location</p>
-                      <p className="text-white font-extralight">Building Tomorrow's Education</p>
+                      <p className="text-sm font-thin text-slate-400 mb-1">Location</p>
+                      <p className="text-white font-thin">Building Tomorrow's Education</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-indigo-900/10 to-purple-900/10 backdrop-blur border border-indigo-500/10 rounded-2xl p-8">
-                <h4 className="text-lg font-extralight text-white mb-3">For Investors</h4>
-                <p className="text-sm text-slate-300 font-extralight leading-relaxed">
+              <div className="bg-slate-950/30 backdrop-blur border border-indigo-500/10 rounded-2xl p-8">
+                <h4 className="text-lg font-thin text-white mb-3">For Investors</h4>
+                <p className="text-sm text-slate-300 font-thin leading-relaxed">
                   We're building the future of educational technology.
                   Join us in transforming how the world learns.
                 </p>

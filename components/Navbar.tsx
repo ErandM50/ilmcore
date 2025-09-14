@@ -68,9 +68,9 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <button className="px-6 py-2.5 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 text-white text-sm font-light rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl">
-            Get Started
-          </button>
+          <a href="#about" className="px-8 py-2.5 bg-white/5 backdrop-blur text-white text-sm font-thin rounded-full border border-white/20 hover:bg-white/10 hover:border-white/30 transition-all duration-300 tracking-wider">
+            About Us
+          </a>
         </div>
       </div>
     </motion.nav>
