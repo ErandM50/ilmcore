@@ -23,7 +23,7 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50"
+          ? "bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/30"
           : "bg-transparent"
       }`}
     >
@@ -49,26 +49,26 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#mission"
-              className="text-sm font-light text-slate-300 hover:text-white transition-colors tracking-wide"
+              className="text-sm font-extralight text-slate-300/80 hover:text-white transition-colors tracking-wide"
             >
               Mission
             </a>
             <a
               href="#about"
-              className="text-sm font-light text-slate-300 hover:text-white transition-colors tracking-wide"
+              className="text-sm font-extralight text-slate-300/80 hover:text-white transition-colors tracking-wide"
             >
               About
             </a>
             <a
               href="#contact"
-              className="text-sm font-light text-slate-300 hover:text-white transition-colors tracking-wide"
+              className="text-sm font-extralight text-slate-300/80 hover:text-white transition-colors tracking-wide"
             >
               Contact
             </a>
           </div>
 
           {/* CTA Button */}
-          <button className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          <button className="px-6 py-2.5 bg-gradient-to-r from-indigo-600/80 to-purple-600/80 text-white text-sm font-light rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl">
             Get Started
           </button>
         </div>
