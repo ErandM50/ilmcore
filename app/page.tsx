@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import CrystalStructures from "@/components/CrystalStructures";
+import NeuralNetwork from "@/components/NeuralNetwork";
 import SunsetGlow from "@/components/SunsetGlow";
 import Navbar from "@/components/Navbar";
 import { useRef, useState } from "react";
@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* Hero Section - Matching Auth Page Left Side */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <CrystalStructures />
+        <NeuralNetwork />
 
         <motion.div
           style={{ y, opacity }}
