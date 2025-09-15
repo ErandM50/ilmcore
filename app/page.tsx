@@ -205,19 +205,37 @@ export default function Home() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
                 viewport={{ once: true }}
                 className="relative group h-full"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/5 to-purple-600/5 rounded-2xl blur-xl group-hover:from-indigo-600/10 group-hover:to-purple-600/10 transition-all duration-300"></div>
-                <div className="relative h-full p-8 bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-2xl hover:border-slate-700/50 transition-all duration-300 group-hover:-translate-y-1">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/5 text-indigo-300/80 mb-6">
-                    <item.icon className="w-6 h-6" />
+                {/* Clean card design */}
+                <div className="relative h-full">
+                  {/* Subtle hover glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-white/0 to-white/0 group-hover:from-white/[0.06] group-hover:to-white/[0.03] rounded-2xl blur-xl transition-all duration-500"></div>
+
+                  {/* Main card with refined styling */}
+                  <div className="relative h-full p-8 bg-slate-950/30 backdrop-blur-xl border border-white/[0.05] rounded-2xl group-hover:bg-slate-950/40 group-hover:border-white/[0.08] transition-all duration-500">
+                    {/* Simple icon */}
+                    <div className="relative mb-6">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.08] group-hover:bg-white/[0.05] group-hover:border-white/[0.12] transition-all duration-300">
+                        <item.icon className="w-6 h-6 text-white/60 group-hover:text-white/80 transition-colors" strokeWidth={1.5} />
+                      </div>
+                    </div>
+
+                    {/* Clean typography */}
+                    <h3 className="text-xl font-extralight text-white/85 mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-white/50 font-extralight leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    {/* Minimal hover accent */}
+                    <div className="absolute bottom-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/0 to-transparent group-hover:via-white/[0.05] transition-all duration-500"></div>
                   </div>
-                  <h3 className="text-xl font-extralight text-white mb-3">{item.title}</h3>
-                  <p className="text-slate-400 font-extralight leading-relaxed text-sm">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -233,7 +251,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-16 items-center"
+            className="grid lg:grid-cols-2 gap-16 items-start"
           >
             <div className="space-y-8">
               <div>
@@ -258,10 +276,14 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-3xl p-12">
-                <div className="grid grid-cols-2 gap-8">
+            <div className="relative lg:pt-[100px]">
+              {/* Professional stats grid positioned below header level */}
+              <div className="relative w-full">
+                {/* Very subtle ambient effect */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-white/[0.01] to-white/[0.01] rounded-3xl blur-3xl"></div>
+
+                {/* Stats grid container - 2x2 grid, full width */}
+                <div className="relative grid grid-cols-2 gap-3 w-full">
                   {[
                     { label: "Founded", value: "2025" },
                     { label: "Focus", value: "AI Education" },
@@ -270,14 +292,33 @@ export default function Home() {
                   ].map((stat, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
                       viewport={{ once: true }}
-                      className="text-center bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-xl p-6 hover:border-slate-700/50 transition-colors"
+                      className="relative group"
                     >
-                      <p className="text-3xl font-extralight text-white mb-2">{stat.value}</p>
-                      <p className="text-xs font-light text-slate-400 uppercase tracking-wider">{stat.label}</p>
+                      {/* Uniform stat card - compact height */}
+                      <div className="relative bg-slate-950/30 backdrop-blur-xl rounded-2xl border border-white/[0.05] group-hover:border-white/[0.08] group-hover:bg-slate-950/40 transition-all duration-500">
+                        {/* Centered content container */}
+                        <div className="flex flex-col items-center justify-center px-6 py-8">
+                          {/* Value */}
+                          <p className="text-2xl lg:text-3xl font-extralight text-white/85 tracking-tight text-center leading-none mb-2">
+                            {stat.value}
+                          </p>
+
+                          {/* Label */}
+                          <p className="text-[10px] font-light text-white/40 uppercase tracking-[0.3em] text-center">
+                            {stat.label}
+                          </p>
+                        </div>
+
+                        {/* Subtle hover overlay */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/0 to-white/0 group-hover:from-white/[0.02] group-hover:to-transparent transition-all duration-500"></div>
+
+                        {/* Bottom accent on hover */}
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-px bg-gradient-to-r from-transparent via-white/0 to-transparent group-hover:via-white/10 transition-all duration-500"></div>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
@@ -322,7 +363,7 @@ export default function Home() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors font-thin"
+                    className="w-full px-4 py-3 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/30 focus:bg-slate-950/80 transition-all font-thin"
                     placeholder="Your name"
                   />
                 </div>
@@ -334,7 +375,7 @@ export default function Home() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors font-thin"
+                    className="w-full px-4 py-3 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/30 focus:bg-slate-950/80 transition-all font-thin"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -346,7 +387,7 @@ export default function Home() {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors resize-none font-thin"
+                    className="w-full px-4 py-3 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/30 focus:bg-slate-950/80 transition-all resize-none font-thin"
                     placeholder="Tell us about your institution and goals..."
                   />
                 </div>
@@ -368,35 +409,51 @@ export default function Home() {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="bg-slate-950/50 backdrop-blur border border-slate-800/30 rounded-2xl p-8">
-                <h3 className="text-2xl font-thin text-white mb-6">Contact Information</h3>
+              {/* Contact Info Card - Clean and Professional */}
+              <div className="relative">
+                <div className="bg-slate-950/30 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 hover:bg-slate-950/40 hover:border-white/[0.08] transition-all duration-500">
+                  <h3 className="text-2xl font-thin text-white/85 mb-8">Contact Information</h3>
 
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <Mail className="w-5 h-5 text-indigo-400/70 mt-1" />
-                    <div>
-                      <p className="text-sm font-thin text-slate-400 mb-1">Email</p>
-                      <p className="text-white font-thin">erand@ilmcore.com</p>
-                      <p className="text-white font-thin">isuf@ilmcore.com</p>
+                  <div className="space-y-6">
+                    {/* Email */}
+                    <div className="flex items-start space-x-4">
+                      <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08]">
+                        <Mail className="w-5 h-5 text-white/50" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-light text-white/40 uppercase tracking-wider mb-2">Email</p>
+                        <p className="text-white/70 font-extralight">erand@ilmcore.com</p>
+                        <p className="text-white/70 font-extralight">isuf@ilmcore.com</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex items-start space-x-4">
-                    <MapPin className="w-5 h-5 text-indigo-400/70 mt-1" />
-                    <div>
-                      <p className="text-sm font-thin text-slate-400 mb-1">Location</p>
-                      <p className="text-white font-thin">Building Tomorrow's Education</p>
+                    {/* Location */}
+                    <div className="flex items-start space-x-4">
+                      <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08]">
+                        <MapPin className="w-5 h-5 text-white/50" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-light text-white/40 uppercase tracking-wider mb-2">Location</p>
+                        <p className="text-white/70 font-extralight">Building Tomorrow's Education</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-950/30 backdrop-blur border border-indigo-500/10 rounded-2xl p-8">
-                <h4 className="text-lg font-thin text-white mb-3">For Investors</h4>
-                <p className="text-sm text-slate-300 font-thin leading-relaxed">
-                  We're building the future of educational technology.
-                  Join us in transforming how the world learns.
-                </p>
+              {/* Investor Card - Minimal and Professional */}
+              <div className="relative">
+                <div className="bg-slate-950/30 backdrop-blur-xl border border-white/[0.05] rounded-2xl p-8 hover:bg-slate-950/40 hover:border-white/[0.08] transition-all duration-500">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.08] mb-5">
+                    <Zap className="w-5 h-5 text-white/50" strokeWidth={1.5} />
+                  </div>
+
+                  <h4 className="text-lg font-thin text-white/85 mb-3">For Investors</h4>
+                  <p className="text-sm text-white/50 font-extralight leading-relaxed">
+                    We're building the future of educational technology.
+                    Join us in transforming how the world learns.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
