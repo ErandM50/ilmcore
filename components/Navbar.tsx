@@ -68,30 +68,30 @@ export default function Navbar() {
           {/* Enhanced Logo */}
           <Link href="/" className="flex items-center space-x-2 group" aria-label="ilmCore homepage">
             <div className="relative">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-b from-slate-900/30 to-slate-950/50 backdrop-blur flex items-center justify-center border border-white/[0.04] group-hover:border-white/[0.08] transition-colors duration-500">
-                <div className="relative flex items-end justify-center space-x-[3px] h-[18px]">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-b from-slate-900/30 to-slate-950/50 backdrop-blur flex items-center justify-center border border-white/[0.04] group-hover:border-white/[0.08] transition-colors duration-500">
+                <div className="relative flex items-end justify-center space-x-[4px] h-[22px]">
                   {/* Enhanced logo bars with better gradients */}
                   <div
-                    className="w-[1.5px] h-[18px] rounded-full transition-all duration-500 group-hover:h-[16px]"
+                    className="w-[2px] h-[22px] rounded-full transition-all duration-500 group-hover:h-[20px]"
                     style={{
                       background: 'linear-gradient(to bottom, var(--accent-0), rgba(122,134,255,0.3))',
                     }}
                   ></div>
                   <div
-                    className="w-[1.5px] h-[11px] rounded-full transition-all duration-500 group-hover:h-[13px]"
+                    className="w-[2px] h-[14px] rounded-full transition-all duration-500 group-hover:h-[16px]"
                     style={{
                       background: 'linear-gradient(to bottom, var(--accent-1), rgba(47,230,214,0.25))',
                     }}
                   ></div>
                   <div
-                    className="w-[1.5px] h-[14px] rounded-full transition-all duration-500 group-hover:h-[15px]"
+                    className="w-[2px] h-[18px] rounded-full transition-all duration-500 group-hover:h-[19px]"
                     style={{
                       background: 'linear-gradient(to bottom, var(--accent-0), rgba(122,134,255,0.28))',
                     }}
                   ></div>
                   {/* Book spine with accent colors */}
                   <div
-                    className="relative w-[2px] h-[9px] origin-bottom transition-all duration-500 group-hover:h-[10px]"
+                    className="relative w-[2.5px] h-[11px] origin-bottom transition-all duration-500 group-hover:h-[12px]"
                     style={{
                       transform: 'skewX(10deg) translateY(-0.5px)',
                       background: 'linear-gradient(135deg, var(--accent-1), var(--accent-0), var(--accent-1))',
@@ -106,8 +106,8 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex items-baseline">
-              <span className="text-[20px] font-extralight text-primary group-hover:text-accent transition-colors duration-500">ilm</span>
-              <span className="text-[20px] font-thin text-secondary group-hover:text-accent-secondary transition-colors duration-500">Core</span>
+              <span className="text-[21px] font-semibold text-primary group-hover:text-accent transition-colors duration-500 tracking-tight">ilm</span>
+              <span className="text-[19px] font-medium text-secondary group-hover:text-accent-secondary transition-colors duration-500 tracking-wider">Core</span>
             </div>
           </Link>
 
