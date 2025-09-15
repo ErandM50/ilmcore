@@ -58,27 +58,16 @@ const SuccessCard = ({
             <div className="pt-6 border-t border-line">
               <p className="text-sm text-tertiary mb-4">Or contact us directly:</p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <div className="flex justify-center">
                 <Button
                   variant="tertiary"
                   size="sm"
-                  href="mailto:erand@ilmcore.com"
+                  href="mailto:hi@ilmcore.com"
                   leftIcon={<Mail className="w-4 h-4" />}
                   rightIcon={<ExternalLink className="w-3 h-3" />}
                   className="text-accent hover:text-accent-hover"
                 >
-                  Email Erand
-                </Button>
-
-                <Button
-                  variant="tertiary"
-                  size="sm"
-                  href="mailto:isuf@ilmcore.com"
-                  leftIcon={<Mail className="w-4 h-4" />}
-                  rightIcon={<ExternalLink className="w-3 h-3" />}
-                  className="text-accent hover:text-accent-hover"
-                >
-                  Email Isuf
+                  hi@ilmcore.com
                 </Button>
               </div>
             </div>

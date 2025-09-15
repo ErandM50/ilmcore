@@ -11,6 +11,7 @@ import SuccessCard from "@/components/SuccessCard";
 import { useRef, useState } from "react";
 import { ChevronRight, Brain, Users, Zap, Mail, MapPin, ChevronDown } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -67,17 +68,40 @@ export default function Home() {
     setFormState('loading');
 
     try {
-      // Simulate form submission delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // EmailJS configuration with comprehensive email body
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        topic: formData.topic || 'General Inquiry',
+        message: formData.message,
+        email_body: `
+Contact Form Submission from ilmCore Website
 
-      // Create mailto link
-      const subject = `Contact from ${formData.name}${formData.topic ? ` - ${formData.topic}` : ''}`;
-      const body = `${formData.message}%0D%0A%0D%0AFrom: ${formData.email}`;
-      const mailtoLink = `mailto:erand@ilmcore.com,isuf@ilmcore.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+Name: ${formData.name}
+Email: ${formData.email}
+Topic: ${formData.topic || 'General Inquiry'}
 
-      window.location.href = mailtoLink;
+Message:
+${formData.message}
+
+---
+Sent via ilmCore contact form
+        `.trim(),
+        to_email: 'hi@ilmcore.com',
+      };
+
+      await emailjs.send(
+        'service_603y01p',
+        'template_4lcdcgw',
+        templateParams,
+        'qUm40XHhBamuxCqgx'
+      );
+
       setFormState('success');
+      // Reset form after successful submission
+      setFormData({ name: "", email: "", topic: "", message: "" });
     } catch (error) {
+      console.error('EmailJS Error:', error);
       setFormState('error');
     }
   };
@@ -469,7 +493,7 @@ export default function Home() {
                     type="select"
                     value={formData.topic}
                     onChange={(e) => updateFormData('topic', e.target.value)}
-                    options={['Sales', 'Partnership', 'Support', 'Media', 'Investment']}
+                    options={['Sales', 'Partnership', 'Support', 'Media', 'Collaboration']}
                     placeholder="Select a topic"
                     hint="Help us route your message to the right team"
                   />
@@ -531,11 +555,8 @@ export default function Home() {
                     <div>
                       <p className="text-meta text-tertiary mb-2">Email</p>
                       <div className="space-y-1">
-                        <a href="mailto:erand@ilmcore.com" className="block text-secondary hover:text-accent transition-colors">
-                          erand@ilmcore.com
-                        </a>
-                        <a href="mailto:isuf@ilmcore.com" className="block text-secondary hover:text-accent transition-colors">
-                          isuf@ilmcore.com
+                        <a href="mailto:hi@ilmcore.com" className="block text-secondary hover:text-accent transition-colors">
+                          hi@ilmcore.com
                         </a>
                       </div>
                     </div>
@@ -554,19 +575,19 @@ export default function Home() {
                 </div>
               </ContactInfoCard>
 
-              {/* Investor Card */}
-              <ContactInfoCard title="For Investors" icon={Zap}>
+              {/* Partnership Card */}
+              <ContactInfoCard title="Partnership Opportunities" icon={Zap}>
                 <p className="text-body text-secondary leading-relaxed">
-                  We're building the future of educational technology.
-                  Join us in transforming how the world learns.
+                  Strategic partnerships drive breakthrough innovation.
+                  Let's explore how we can create value together.
                 </p>
                 <div className="mt-6">
                   <Button
                     variant="tertiary"
                     size="sm"
-                    href="mailto:erand@ilmcore.com?subject=Investment Inquiry"
+                    href="mailto:hi@ilmcore.com?subject=Partnership Inquiry"
                   >
-                    Learn About Investment
+                    Explore Partnership
                   </Button>
                 </div>
               </ContactInfoCard>
@@ -603,7 +624,7 @@ export default function Home() {
               <Button
                 variant="tertiary"
                 size="lg"
-                href="mailto:erand@ilmcore.com"
+                href="mailto:hi@ilmcore.com"
               >
                 Contact Sales
               </Button>
