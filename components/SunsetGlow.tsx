@@ -203,7 +203,7 @@ export default function SunsetGlow() {
               </div>
 
               <p className="text-sm font-extralight text-white/60">
-                © 2024 ilmcore. Accelerating understanding through AI.
+                © 2025 ilmcore. Accelerating understanding through AI.
               </p>
             </div>
           </div>

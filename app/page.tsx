@@ -263,7 +263,7 @@ export default function Home() {
               <div className="relative bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-3xl p-12">
                 <div className="grid grid-cols-2 gap-8">
                   {[
-                    { label: "Founded", value: "2024" },
+                    { label: "Founded", value: "2025" },
                     { label: "Focus", value: "AI Education" },
                     { label: "Mission", value: "Transform Learning" },
                     { label: "Vision", value: "Global Impact" },
@@ -288,8 +288,10 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative py-32 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section id="contact" className="relative py-32 px-6 lg:px-8 border-b border-white/[0.03]">
+        {/* Gradient overlay that darkens toward the bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/30 to-slate-950/90 pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
