@@ -63,6 +63,7 @@ const generateNeurons = (countOverride?: number): Neuron[] => {
 
 export default function NeuralNetwork() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const [isMounted, setIsMounted] = useState(false);
   const [activeNeuron, setActiveNeuron] = useState<number | null>(null);
@@ -82,6 +83,7 @@ export default function NeuralNetwork() {
     if (!isMounted || prefersReducedMotion) return;
 
     const handleMouseMove = (e: MouseEvent) => {
+      // Use containerRef for positioning calculations
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -110,15 +112,18 @@ export default function NeuralNetwork() {
 
     const onMouseLeave = () => setActiveNeuron(null);
 
+    // Listen on window for global mouse tracking
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Also listen on container for leave events
     const container = containerRef.current;
     if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
       container.addEventListener("mouseleave", onMouseLeave);
     }
 
     return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
       if (container) {
-        container.removeEventListener("mousemove", handleMouseMove);
         container.removeEventListener("mouseleave", onMouseLeave);
       }
     };

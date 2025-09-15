@@ -78,7 +78,7 @@ export default function Home() {
                       className="relative w-1 h-7 rounded-sm origin-bottom"
                       style={{
                         animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 900ms',
-                        transform: 'skewX(8deg)',
+                        transform: 'skewX(12deg)',
                         background: 'linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.35) 15%, rgba(255,255,255,0.55) 100%)',
                         boxShadow: '-1px 0 2px rgba(0,0,0,0.1), 1px 0 1px rgba(255,255,255,0.05)'
                       }}
