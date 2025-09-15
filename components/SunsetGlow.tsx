@@ -157,16 +157,49 @@ export default function SunsetGlow() {
           {/* Bottom copyright */}
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="flex items-center space-x-3 mb-4 md:mb-0">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur flex items-center justify-center shadow-lg border border-white/5">
-                  <div className="flex justify-center items-end space-x-0.5 h-5">
-                    <div className="w-0.5 h-2.5 bg-white/40 rounded-full"></div>
-                    <div className="w-0.5 h-4 bg-white/60 rounded-full"></div>
-                    <div className="w-0.5 h-3 bg-white/50 rounded-full"></div>
-                    <div className="w-0.5 h-5 bg-white/80 rounded-full"></div>
+              <div className="flex items-center space-x-2 mb-4 md:mb-0">
+                <div className="w-7 h-7 rounded-md bg-gradient-to-b from-slate-900/20 to-slate-950/40 backdrop-blur flex items-center justify-center border border-white/[0.03]">
+                  <div className="relative flex items-end justify-center space-x-[2.5px] h-[15px]">
+                    {/* Bar 1 - tallest */}
+                    <div
+                      className="w-[1.2px] h-[15px] rounded-full"
+                      style={{
+                        background: 'linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.25))',
+                      }}
+                    ></div>
+                    {/* Bar 2 */}
+                    <div
+                      className="w-[1.2px] h-[9px] rounded-full"
+                      style={{
+                        background: 'linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(255,255,255,0.2))',
+                      }}
+                    ></div>
+                    {/* Bar 3 */}
+                    <div
+                      className="w-[1.2px] h-[12px] rounded-full"
+                      style={{
+                        background: 'linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.23))',
+                      }}
+                    ></div>
+                    {/* Bar 4 - Book spine */}
+                    <div
+                      className="relative w-[1.5px] h-[7px] origin-bottom"
+                      style={{
+                        transform: 'skewX(10deg) translateY(-0.5px)',
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.65), rgba(255,255,255,0.4))',
+                        borderRadius: '0 0.5px 0.5px 0',
+                        boxShadow: 'inset -0.5px 0 0 rgba(255,255,255,0.08)',
+                      }}
+                    >
+                      {/* Single subtle page line */}
+                      <div className="absolute inset-x-0 top-[45%] h-px bg-black/8"></div>
+                    </div>
                   </div>
                 </div>
-                <span className="text-lg font-extralight text-white">ilmcore</span>
+                <div className="flex items-baseline">
+                  <span className="text-[16px] font-extralight text-white/90 tracking-[0.01em]">ilm</span>
+                  <span className="text-[16px] font-thin text-white/50 tracking-[0.01em]">Core</span>
+                </div>
               </div>
 
               <p className="text-sm font-extralight text-white/60">

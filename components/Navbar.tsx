@@ -30,25 +30,53 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-2 group">
             <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur flex items-center justify-center shadow-xl border border-white/5">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20"></div>
-                <svg className="relative w-6 h-6 drop-shadow-[0_0_8px_rgba(139,92,246,0.35)]" viewBox="0 0 24 24" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="logoBars" x1="0" y1="0" x2="0" y2="24">
-                      <stop offset="0%" stopColor="#C7D2FE" stopOpacity="0.95" />
-                      <stop offset="100%" stopColor="#C4B5FD" stopOpacity="0.85" />
-                    </linearGradient>
-                  </defs>
-                  <rect x="5.5" y="9" width="1.6" height="6" rx="0.8" fill="url(#logoBars)" />
-                  <rect x="9.5" y="6" width="1.6" height="9" rx="0.8" fill="url(#logoBars)" />
-                  <rect x="13.5" y="8" width="1.6" height="7" rx="0.8" fill="url(#logoBars)" />
-                  <rect x="17.5" y="4" width="1.6" height="11" rx="0.8" fill="url(#logoBars)" />
-                </svg>
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-b from-slate-900/30 to-slate-950/50 backdrop-blur flex items-center justify-center border border-white/[0.04] group-hover:border-white/[0.08] transition-colors duration-500">
+                <div className="relative flex items-end justify-center space-x-[3px] h-[18px]">
+                  {/* Bar 1 - tallest */}
+                  <div
+                    className="w-[1.5px] h-[18px] rounded-full transition-all duration-500 group-hover:h-[16px]"
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.3))',
+                    }}
+                  ></div>
+                  {/* Bar 2 */}
+                  <div
+                    className="w-[1.5px] h-[11px] rounded-full transition-all duration-500 group-hover:h-[13px]"
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.25))',
+                    }}
+                  ></div>
+                  {/* Bar 3 */}
+                  <div
+                    className="w-[1.5px] h-[14px] rounded-full transition-all duration-500 group-hover:h-[15px]"
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.28))',
+                    }}
+                  ></div>
+                  {/* Bar 4 - Book spine */}
+                  <div
+                    className="relative w-[2px] h-[9px] origin-bottom transition-all duration-500 group-hover:h-[10px]"
+                    style={{
+                      transform: 'skewX(10deg) translateY(-0.5px)',
+                      background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.75), rgba(255,255,255,0.5))',
+                      borderRadius: '0 1px 1px 0',
+                      boxShadow: 'inset -0.5px 0 0 rgba(255,255,255,0.1), 0.5px 0 1px rgba(0,0,0,0.2)',
+                    }}
+                  >
+                    {/* Single page line for minimal look */}
+                    <div className="absolute inset-x-0 top-[40%] h-px bg-black/10"></div>
+                    {/* Book edge glow */}
+                    <div className="absolute inset-y-0 right-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <span className="text-xl font-light text-white tracking-tight">ilmCore</span>
+            <div className="flex items-baseline">
+              <span className="text-[17px] font-extralight text-white/95 tracking-[0.01em] group-hover:text-white transition-colors duration-500">ilm</span>
+              <span className="text-[17px] font-thin text-white/60 tracking-[0.01em] group-hover:text-white/80 transition-colors duration-500">Core</span>
+            </div>
           </Link>
 
           {/* Navigation Links */}
