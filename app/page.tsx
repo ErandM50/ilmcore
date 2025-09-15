@@ -68,21 +68,27 @@ export default function Home() {
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-600/10 to-purple-600/10"></div>
                 <div className="relative">
                   <div className="flex justify-center items-end space-x-2.5 h-16">
-                    <div className="w-0.5 h-8 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '0ms'}}></div>
-                    <div className="w-0.5 h-14 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '150ms'}}></div>
-                    <div className="w-0.5 h-10 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '300ms'}}></div>
-                    <div className="w-0.5 h-16 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '450ms'}}></div>
-                    <div className="w-0.5 h-9 bg-white/35 rounded-full animate-pulse" style={{animationDelay: '600ms'}}></div>
-                    <div className="w-0.5 h-12 bg-white/45 rounded-full animate-pulse" style={{animationDelay: '750ms'}}></div>
+                    <div className="w-0.5 h-8 bg-white/30 rounded-full" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 0ms'}}></div>
+                    <div className="w-0.5 h-14 bg-white/50 rounded-full" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 150ms'}}></div>
+                    <div className="w-0.5 h-10 bg-white/40 rounded-full" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 300ms'}}></div>
+                    <div className="w-0.5 h-16 bg-white/70 rounded-full" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 450ms'}}></div>
+                    <div className="w-0.5 h-9 bg-white/35 rounded-full" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 600ms'}}></div>
+                    <div className="w-0.5 h-12 bg-white/45 rounded-full" style={{animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 750ms'}}></div>
                     <div
-                      className="relative w-1 h-7 rounded-sm animate-pulse origin-bottom"
+                      className="relative w-1 h-7 rounded-sm origin-bottom"
                       style={{
-                        animationDelay: '900ms',
+                        animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite 900ms',
                         transform: 'skewX(8deg)',
                         background: 'linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.35) 15%, rgba(255,255,255,0.55) 100%)',
                         boxShadow: '-1px 0 2px rgba(0,0,0,0.1), 1px 0 1px rgba(255,255,255,0.05)'
                       }}
                     >
+                      {/* Page lines */}
+                      <div className="absolute inset-x-0 top-2 h-px bg-white/10"></div>
+                      <div className="absolute inset-x-0 top-4 h-px bg-white/8"></div>
+                      <div className="absolute inset-x-0 bottom-2 h-px bg-white/10"></div>
+
+                      {/* Spine highlight */}
                       <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-white/10 to-transparent"></div>
                     </div>
                   </div>

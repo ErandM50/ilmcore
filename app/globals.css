@@ -60,6 +60,32 @@ body {
   }
 }
 
+/* Custom animations for book spine */
+@keyframes bookPulse {
+  0%, 100% {
+    opacity: 0.8;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   html {
