@@ -74,7 +74,17 @@ export default function Home() {
                     <div className="w-0.5 h-16 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '450ms'}}></div>
                     <div className="w-0.5 h-9 bg-white/35 rounded-full animate-pulse" style={{animationDelay: '600ms'}}></div>
                     <div className="w-0.5 h-12 bg-white/45 rounded-full animate-pulse" style={{animationDelay: '750ms'}}></div>
-                    <div className="w-0.5 h-7 bg-white/25 rounded-full animate-pulse" style={{animationDelay: '900ms'}}></div>
+                    <div
+                      className="relative w-1 h-7 rounded-sm animate-pulse origin-bottom"
+                      style={{
+                        animationDelay: '900ms',
+                        transform: 'skewX(8deg)',
+                        background: 'linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.35) 15%, rgba(255,255,255,0.55) 100%)',
+                        boxShadow: '-1px 0 2px rgba(0,0,0,0.1), 1px 0 1px rgba(255,255,255,0.05)'
+                      }}
+                    >
+                      <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-white/10 to-transparent"></div>
+                    </div>
                   </div>
                 </div>
               </div>
