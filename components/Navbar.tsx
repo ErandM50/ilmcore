@@ -106,8 +106,8 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex items-baseline">
-              <span className="text-[17px] font-extralight text-primary group-hover:text-accent transition-colors duration-500">ilm</span>
-              <span className="text-[17px] font-thin text-secondary group-hover:text-accent-secondary transition-colors duration-500">Core</span>
+              <span className="text-[20px] font-extralight text-primary group-hover:text-accent transition-colors duration-500">ilm</span>
+              <span className="text-[20px] font-thin text-secondary group-hover:text-accent-secondary transition-colors duration-500">Core</span>
             </div>
           </Link>
 
@@ -117,7 +117,7 @@ export default function Navbar() {
               <div key={item.id} className="relative">
                 <a
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-300 ${
+                  className={`text-base font-medium transition-colors duration-300 ${
                     activeSection === item.id
                       ? 'text-accent'
                       : 'text-secondary hover:text-primary'

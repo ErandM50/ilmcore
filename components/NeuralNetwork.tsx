@@ -9,6 +9,7 @@ interface Neuron {
   y: number;
   connections: number[];
   pulseDelay: number;
+  intensity: 'bright' | 'normal' | 'dim';
 }
 
 interface Pulse {
@@ -35,12 +36,23 @@ const generateNeurons = (countOverride?: number): Neuron[] => {
     const offsetX = ((i * 13) % 7) - 3;
     const offsetY = ((i * 17) % 5) - 2;
 
+    // Assign intensity - make 2-3 bright, some normal, rest dim
+    let intensity: 'bright' | 'normal' | 'dim';
+    if (i === 3 || i === 12 || i === 18) {
+      intensity = 'bright'; // 3 bright neurons at specific positions
+    } else if (i % 4 === 0) {
+      intensity = 'normal'; // Every 4th is normal
+    } else {
+      intensity = 'dim'; // Rest are dim
+    }
+
     neurons.push({
       id: i,
       x: 15 + gridX + offsetX,
       y: 20 + gridY + offsetY,
       connections: [],
       pulseDelay: (i * 0.3) % 4,
+      intensity,
     });
   }
 
@@ -204,6 +216,31 @@ export default function NeuralNetwork() {
     return 1;
   };
 
+  const getNeuronOpacity = (neuron: Neuron, isActive: boolean, isGlow: boolean = false) => {
+    const baseOpacity = {
+      bright: isGlow ? 0.25 : 0.85,
+      normal: isGlow ? 0.12 : 0.55,
+      dim: isGlow ? 0.06 : 0.35
+    };
+
+    const activeOpacity = {
+      bright: isGlow ? 0.45 : 0.95,
+      normal: isGlow ? 0.28 : 0.82,
+      dim: isGlow ? 0.15 : 0.65
+    };
+
+    return isActive ? activeOpacity[neuron.intensity] : baseOpacity[neuron.intensity];
+  };
+
+  const getNeuronAnimationValues = (neuron: Neuron) => {
+    const animations = {
+      bright: "0.85;0.95;0.85",
+      normal: "0.55;0.82;0.55",
+      dim: "0.35;0.65;0.35"
+    };
+    return animations[neuron.intensity];
+  };
+
   return (
     <div ref={containerRef} className="absolute inset-0 overflow-hidden">
       {/* Base gradient overlay */}
@@ -286,7 +323,7 @@ export default function NeuralNetwork() {
                 initial={{ scale: 0 }}
                 animate={{
                   scale: getNeuronScale(neuron.id),
-                  opacity: activeNeuron === neuron.id ? 0.28 : 0.10
+                  opacity: getNeuronOpacity(neuron, activeNeuron === neuron.id, true)
                 }}
                 transition={{ duration: 0.3 }}
               />
@@ -296,13 +333,11 @@ export default function NeuralNetwork() {
                 cx={`${neuron.x}%`}
                 cy={`${neuron.y}%`}
                 r="2.6"
-                fill="rgba(122, 134, 255, 0.55)"
+                fill={`rgba(122, 134, 255, ${getNeuronOpacity(neuron, false)})`}
                 initial={{ scale: 0 }}
                 animate={{
                   scale: getNeuronScale(neuron.id),
-                  fill: activeNeuron === neuron.id
-                    ? "rgba(122, 134, 255, 0.82)"
-                    : "rgba(122, 134, 255, 0.55)"
+                  fill: `rgba(122, 134, 255, ${getNeuronOpacity(neuron, activeNeuron === neuron.id)})`
                 }}
                 transition={{
                   duration: 0.3,
@@ -311,7 +346,7 @@ export default function NeuralNetwork() {
               >
                 <animate
                   attributeName="opacity"
-                  values="0.55;0.82;0.55"
+                  values={getNeuronAnimationValues(neuron)}
                   dur={`${3 + neuron.pulseDelay}s`}
                   repeatCount="indefinite"
                 />
