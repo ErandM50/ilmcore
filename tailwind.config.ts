@@ -42,7 +42,7 @@ const config: Config = {
         'h2': ['var(--step-h2)', { lineHeight: '1.25' }],
         'lead': ['var(--step-lead)', { lineHeight: '1.5' }],
         'body': ['var(--step-body)', { lineHeight: '1.6' }],
-        'meta': ['var(--step-meta)', { lineHeight: '1.4', letterSpacing: '0.08em', textTransform: 'uppercase' }],
+        'meta': ['var(--step-meta)', { lineHeight: '1.4', letterSpacing: '0.08em' }],
       },
       spacing: {
         'xs': 'var(--space-xs)',

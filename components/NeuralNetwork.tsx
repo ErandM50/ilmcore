@@ -85,7 +85,7 @@ export default function NeuralNetwork() {
   const prefersReducedMotion = useMemo(() => typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, []);
 
   const neurons = useMemo(() => generateNeurons(isCoarsePointer || prefersReducedMotion ? 16 : 25), [isCoarsePointer, prefersReducedMotion]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     setIsMounted(true);
