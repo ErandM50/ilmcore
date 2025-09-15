@@ -5,7 +5,8 @@ import NeuralNetwork from "@/components/NeuralNetwork";
 import SunsetGlow from "@/components/SunsetGlow";
 import Navbar from "@/components/Navbar";
 import { useRef, useState } from "react";
-import { ChevronRight, Brain, Users, Zap, Mail, MapPin } from "lucide-react";
+import { ChevronRight, Brain, Users, Zap, Mail, MapPin, ChevronDown } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -16,6 +17,8 @@ export default function Home() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const networkY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +38,18 @@ export default function Home() {
 
       {/* Hero Section - Matching Auth Page Left Side */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* <NeuralNetwork /> */}
+        {/* Ambient Neural Network with parallax and blending */}
+        <motion.div
+          aria-hidden
+          style={{ y: networkY }}
+          className="absolute inset-0 z-0 opacity-40 mix-blend-screen"
+        >
+          <NeuralNetwork />
+        </motion.div>
+
+        {/* Subtle grid overlay and gradient mask for legibility */}
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-grid-slate-dark opacity-[0.06]" />
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/40" />
 
         <motion.div
           style={{ y, opacity }}
@@ -74,7 +88,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="space-y-2">
-                <h1 className="text-5xl font-extralight text-white tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extralight text-white tracking-tight">
                   ilmCore
                 </h1>
                 <p className="text-base font-light text-white/60 tracking-[0.3em] uppercase">
@@ -114,27 +128,30 @@ export default function Home() {
               <a href="#contact" className="px-10 py-3.5 bg-transparent backdrop-blur border border-white/10 text-white font-extralight rounded-full hover:bg-white/5 hover:border-white/20 transition-all duration-300 inline-flex items-center justify-center">
                 <span>Contact Us</span>
               </a>
-              <button className="group px-10 py-3.5 bg-transparent backdrop-blur border border-white/10 text-white font-extralight rounded-full hover:bg-white/5 hover:border-white/20 transition-all duration-300 flex items-center space-x-2">
+              <a href="#mission" className="group px-10 py-3.5 bg-transparent backdrop-blur border border-white/10 text-white font-extralight rounded-full hover:bg-white/5 hover:border-white/20 transition-all duration-300 flex items-center space-x-2">
                 <span>Learn More</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </motion.div>
           </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - left aligned to container */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          style={{ opacity: scrollIndicatorOpacity }}
+          className="pointer-events-none absolute bottom-10 left-0 right-0"
+          aria-hidden
         >
-          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 bg-white/40 rounded-full mt-2"
-            />
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="inline-flex items-center justify-center text-white/60">
+              <svg width="18" height="28" viewBox="0 0 18 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]">
+                <line x1="9" y1="2" x2="9" y2="18" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                <polyline points="4,14 9,19 14,14" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -149,11 +166,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl font-extralight text-white mb-6">Our Mission</h2>
-            <div className="w-24 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto"></div>
+            <SectionHeader eyebrow="Mission" title="Our Mission" align="center" />
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
             {[
               {
                 icon: Brain,
@@ -177,12 +193,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative group"
+                className="relative group h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/5 to-purple-600/5 rounded-2xl blur-xl group-hover:from-indigo-600/10 group-hover:to-purple-600/10 transition-all duration-300"></div>
-                <div className="relative p-8 bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-2xl hover:border-slate-700/50 transition-all duration-300">
-                  <item.icon className="w-10 h-10 text-indigo-400/70 mb-6" />
-                  <h3 className="text-xl font-extralight text-white mb-4">{item.title}</h3>
+                <div className="relative h-full p-8 bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-2xl hover:border-slate-700/50 transition-all duration-300 group-hover:-translate-y-1">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-white/5 text-indigo-300/80 mb-6">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-extralight text-white mb-3">{item.title}</h3>
                   <p className="text-slate-400 font-extralight leading-relaxed text-sm">{item.description}</p>
                 </div>
               </motion.div>
@@ -203,8 +221,7 @@ export default function Home() {
           >
             <div className="space-y-8">
               <div>
-                <h2 className="text-5xl font-extralight text-white mb-6">About ilmcore</h2>
-                <div className="w-24 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600"></div>
+                <SectionHeader eyebrow="About" title="About ilmcore" align="left" />
               </div>
 
               <p className="text-lg text-slate-300 font-extralight leading-relaxed">
@@ -241,7 +258,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="text-center"
+                      className="text-center bg-slate-900/30 backdrop-blur border border-slate-800/50 rounded-xl p-6 hover:border-slate-700/50 transition-colors"
                     >
                       <p className="text-3xl font-extralight text-white mb-2">{stat.value}</p>
                       <p className="text-xs font-light text-slate-400 uppercase tracking-wider">{stat.label}</p>
@@ -264,9 +281,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl font-extralight text-white mb-6">Get in Touch</h2>
-            <div className="w-24 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mb-8"></div>
-            <p className="text-lg text-slate-400 font-extralight max-w-2xl mx-auto">
+            <SectionHeader eyebrow="Contact" title="Get in Touch" align="center" />
+            <p className="text-lg text-slate-400 font-extralight max-w-2xl mx-auto mt-6">
               Ready to transform your institution's approach to education?
               Let's discuss how ilmcore can accelerate your journey.
             </p>

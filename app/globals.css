@@ -7,6 +7,12 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 15, 23, 42;
   --background-end-rgb: 2, 6, 23;
+  /* Theme tokens */
+  --foreground: rgb(255 255 255);
+  --background: rgb(2 6 23);
+  --brand-indigo: 99 102 241;
+  --brand-purple: 139 92 246;
+  --brand-amber: 251 146 60;
 }
 
 * {
@@ -34,6 +40,12 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
 }
 
+/* Accessible focus styles */
+:focus-visible {
+  outline: 2px solid rgba(var(--brand-indigo), 0.6);
+  outline-offset: 3px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -45,5 +57,17 @@ body {
 
   .bg-grid-slate-dark {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

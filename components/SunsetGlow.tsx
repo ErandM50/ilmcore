@@ -19,16 +19,16 @@ export default function SunsetGlow() {
         animate={{ opacity: isVisible ? 1 : 0 }}
         transition={{ duration: 2, ease: "easeOut" }}
         style={{
-          width: '200%',
+          width: '220%',
           height: '100%',
-          background: `radial-gradient(ellipse 150% 100% at 50% 120%,
-            rgba(251, 146, 60, 0.4) 0%,
-            rgba(251, 146, 60, 0.3) 10%,
-            rgba(254, 178, 108, 0.2) 20%,
-            rgba(252, 165, 82, 0.15) 30%,
-            rgba(251, 146, 60, 0.1) 40%,
-            rgba(245, 124, 36, 0.05) 50%,
-            transparent 70%)`,
+          background: `radial-gradient(ellipse 170% 110% at 50% 120%,
+            rgba(251, 146, 60, 0.28) 0%,
+            rgba(251, 146, 60, 0.22) 10%,
+            rgba(254, 178, 108, 0.16) 22%,
+            rgba(252, 165, 82, 0.12) 32%,
+            rgba(251, 146, 60, 0.08) 44%,
+            rgba(245, 124, 36, 0.04) 56%,
+            transparent 76%)`,
         }}
       />
 
@@ -36,7 +36,7 @@ export default function SunsetGlow() {
       <motion.div
         className="absolute bottom-0 left-1/2 -translate-x-1/2"
         animate={{
-          opacity: isVisible ? [0.8, 1, 0.8] : 0,
+          opacity: isVisible ? [0.65, 0.9, 0.65] : 0,
         }}
         transition={{
           duration: 4,
@@ -44,13 +44,13 @@ export default function SunsetGlow() {
           ease: "easeInOut",
         }}
         style={{
-          width: '100%',
+          width: '110%',
           height: '60%',
-          background: `radial-gradient(ellipse 100% 100% at 50% 100%,
-            rgba(251, 146, 60, 0.5) 0%,
-            rgba(249, 115, 22, 0.3) 15%,
-            rgba(234, 88, 12, 0.2) 30%,
-            transparent 60%)`,
+          background: `radial-gradient(ellipse 110% 100% at 50% 100%,
+            rgba(251, 146, 60, 0.42) 0%,
+            rgba(249, 115, 22, 0.24) 18%,
+            rgba(234, 88, 12, 0.16) 34%,
+            transparent 64%)`,
         }}
       />
 
@@ -58,7 +58,7 @@ export default function SunsetGlow() {
       <motion.div
         className="absolute bottom-0 left-1/2 -translate-x-1/2"
         animate={{
-          opacity: isVisible ? [0.5, 0.7, 0.5] : 0,
+          opacity: isVisible ? [0.45, 0.6, 0.45] : 0,
         }}
         transition={{
           duration: 6,
@@ -67,12 +67,12 @@ export default function SunsetGlow() {
           delay: 1,
         }}
         style={{
-          width: '120%',
-          height: '50%',
-          background: `radial-gradient(ellipse 120% 100% at 50% 100%,
-            rgba(254, 215, 170, 0.3) 0%,
-            rgba(254, 202, 138, 0.2) 20%,
-            rgba(252, 191, 73, 0.1) 40%,
+          width: '130%',
+          height: '52%',
+          background: `radial-gradient(ellipse 130% 100% at 50% 100%,
+            rgba(254, 215, 170, 0.26) 0%,
+            rgba(254, 202, 138, 0.18) 22%,
+            rgba(252, 191, 73, 0.1) 42%,
             transparent 70%)`,
         }}
       />
@@ -81,17 +81,17 @@ export default function SunsetGlow() {
       <motion.div
         className="absolute bottom-0 left-1/2 -translate-x-1/2"
         animate={{
-          opacity: isVisible ? 0.3 : 0,
+          opacity: isVisible ? 0.22 : 0,
         }}
         transition={{
           duration: 2,
           delay: 0.5,
         }}
         style={{
-          width: '180%',
-          height: '40%',
-          background: `radial-gradient(ellipse 150% 100% at 50% 100%,
-            rgba(219, 39, 119, 0.1) 0%,
+          width: '190%',
+          height: '42%',
+          background: `radial-gradient(ellipse 160% 100% at 50% 100%,
+            rgba(219, 39, 119, 0.08) 0%,
             rgba(147, 51, 234, 0.05) 30%,
             transparent 60%)`,
         }}
@@ -104,8 +104,8 @@ export default function SunsetGlow() {
         animate={{ opacity: isVisible ? 1 : 0, scaleX: isVisible ? 1 : 0 }}
         transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
         style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(251, 146, 60, 0.8) 20%, rgba(249, 115, 22, 1) 50%, rgba(251, 146, 60, 0.8) 80%, transparent 100%)',
-          boxShadow: '0 0 20px rgba(251, 146, 60, 0.6), 0 0 40px rgba(249, 115, 22, 0.4), 0 0 80px rgba(234, 88, 12, 0.2)',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(251, 146, 60, 0.7) 20%, rgba(249, 115, 22, 0.9) 50%, rgba(251, 146, 60, 0.7) 80%, transparent 100%)',
+          boxShadow: '0 0 18px rgba(251, 146, 60, 0.55), 0 0 36px rgba(249, 115, 22, 0.35), 0 0 70px rgba(234, 88, 12, 0.18)',
         }}
       />
 
@@ -117,8 +117,8 @@ export default function SunsetGlow() {
             <div>
               <h4 className="font-light text-white/60 mb-4 uppercase tracking-wider text-xs">Products</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Platform</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">API</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Platform</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">API</a></li>
               </ul>
             </div>
 
@@ -126,10 +126,10 @@ export default function SunsetGlow() {
             <div>
               <h4 className="font-light text-white/60 mb-4 uppercase tracking-wider text-xs">Company</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">About</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Careers</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Contact</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">News</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">About</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Careers</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Contact</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">News</a></li>
               </ul>
             </div>
 
@@ -137,9 +137,9 @@ export default function SunsetGlow() {
             <div>
               <h4 className="font-light text-white/60 mb-4 uppercase tracking-wider text-xs">Resources</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Documentation</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Privacy Policy</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Security</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Documentation</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Privacy Policy</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Security</a></li>
               </ul>
             </div>
 
@@ -147,9 +147,9 @@ export default function SunsetGlow() {
             <div>
               <h4 className="font-light text-white/60 mb-4 uppercase tracking-wider text-xs">Connect</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">Twitter</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">LinkedIn</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight">GitHub</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">Twitter</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">LinkedIn</a></li>
+                <li><a href="#" className="text-white/80 hover:text-white transition-colors font-extralight underline-offset-4 hover:underline">GitHub</a></li>
               </ul>
             </div>
           </div>
