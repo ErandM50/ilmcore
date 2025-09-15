@@ -195,7 +195,7 @@ export default function NeuralNetwork() {
 
   const getConnectionOpacity = (from: number, to: number) => {
     if (activeNeuron === from || activeNeuron === to) return 0.75;
-    return 0.08;
+    return 0.15;
   };
 
   const getNeuronScale = (neuronId: number) => {
@@ -230,15 +230,15 @@ export default function NeuralNetwork() {
                   y1={`${neuron.y}%`}
                   x2={`${target.x}%`}
                   y2={`${target.y}%`}
-                  stroke="rgba(99, 102, 241, 0.2)"
-                  strokeWidth={0.35}
+                  stroke="rgba(122, 134, 255, 0.28)"
+                  strokeWidth={0.45}
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: getConnectionOpacity(neuron.id, targetId),
                     stroke: isActive
-                      ? "rgba(139, 92, 246, 0.7)"
-                      : "rgba(99, 102, 241, 0.2)",
-                    strokeWidth: isActive ? 0.7 : 0.35,
+                      ? "rgba(122, 134, 255, 0.75)"
+                      : "rgba(122, 134, 255, 0.28)",
+                    strokeWidth: isActive ? 0.8 : 0.45,
                   }}
                   transition={{ duration: 0.2 }}
                 />
@@ -260,13 +260,13 @@ export default function NeuralNetwork() {
                 key={pulse.id}
                 cx={`${x}%`}
                 cy={`${y}%`}
-                r="1.8"
-                fill="rgba(168, 85, 247, 0.75)"
+                r="2.0"
+                fill="rgba(122, 134, 255, 0.78)"
                 opacity={1 - pulse.progress * 0.5}
               >
                 <animate
                   attributeName="r"
-                  values="1.8;3;1.8"
+                  values="2.0;3.2;2.0"
                   dur="0.6s"
                   repeatCount="indefinite"
                 />
@@ -282,11 +282,11 @@ export default function NeuralNetwork() {
                 cx={`${neuron.x}%`}
                 cy={`${neuron.y}%`}
                 r="7"
-                fill="rgba(139, 92, 246, 0.08)"
+                fill="rgba(122, 134, 255, 0.10)"
                 initial={{ scale: 0 }}
                 animate={{
                   scale: getNeuronScale(neuron.id),
-                  opacity: activeNeuron === neuron.id ? 0.25 : 0.08
+                  opacity: activeNeuron === neuron.id ? 0.28 : 0.10
                 }}
                 transition={{ duration: 0.3 }}
               />
@@ -296,13 +296,13 @@ export default function NeuralNetwork() {
                 cx={`${neuron.x}%`}
                 cy={`${neuron.y}%`}
                 r="2.6"
-                fill="rgba(99, 102, 241, 0.45)"
+                fill="rgba(122, 134, 255, 0.55)"
                 initial={{ scale: 0 }}
                 animate={{
                   scale: getNeuronScale(neuron.id),
                   fill: activeNeuron === neuron.id
-                    ? "rgba(168, 85, 247, 0.75)"
-                    : "rgba(99, 102, 241, 0.45)"
+                    ? "rgba(122, 134, 255, 0.82)"
+                    : "rgba(122, 134, 255, 0.55)"
                 }}
                 transition={{
                   duration: 0.3,
@@ -311,7 +311,7 @@ export default function NeuralNetwork() {
               >
                 <animate
                   attributeName="opacity"
-                  values="0.5;0.75;0.5"
+                  values="0.55;0.82;0.55"
                   dur={`${3 + neuron.pulseDelay}s`}
                   repeatCount="indefinite"
                 />
@@ -343,7 +343,7 @@ export default function NeuralNetwork() {
             stiffness: 200,
           }}
           style={{
-            background: "radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(122, 134, 255, 0.12) 0%, rgba(122, 134, 255, 0.04) 50%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />

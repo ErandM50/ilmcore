@@ -102,11 +102,22 @@ export default function Home() {
 
       {/* Hero Section - Matching Auth Page Left Side */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Subtle spotlight behind neural network */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute top-1/2 left-1/2 w-96 h-96 -translate-x-1/2 -translate-y-1/2"
+            style={{
+              background: 'radial-gradient(circle, rgba(122,134,255,0.06) 0%, rgba(122,134,255,0.03) 40%, transparent 70%)',
+              filter: 'blur(60px)'
+            }}
+          />
+        </div>
+
         {/* Enhanced Neural Network with better visibility */}
         <motion.div
           aria-hidden
           style={{ y: networkY }}
-          className="absolute inset-0 z-0 opacity-70 mix-blend-screen"
+          className="absolute inset-0 z-0 opacity-75 mix-blend-screen"
         >
           <NeuralNetwork />
         </motion.div>
