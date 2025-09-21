@@ -9,7 +9,7 @@ import { MissionCard, StatCard, ContactInfoCard } from "@/components/Card";
 import FormField from "@/components/FormField";
 import SuccessCard from "@/components/SuccessCard";
 import { useRef, useState } from "react";
-import { ChevronRight, Brain, Users, Zap, Mail, MapPin, ChevronDown } from "lucide-react";
+import { ChevronRight, Brain, Users, Zap, Mail, MapPin, Phone, ChevronDown } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import emailjs from '@emailjs/browser';
 
@@ -152,9 +152,9 @@ Sent via ilmCore contact form
 
         <motion.div
           style={{ y, opacity }}
-          className="relative z-10 max-w-lg w-full px-12"
+          className="relative z-10 max-w-lg w-full px-6 sm:px-12 pt-20 sm:pt-0"
         >
-          <div className="flex flex-col items-center space-y-16">
+          <div className="flex flex-col items-center space-y-12 sm:space-y-16">
 
             {/* Premium Logo/Icon - Matching Auth Page */}
             <motion.div
@@ -214,22 +214,22 @@ Sent via ilmCore contact form
 
             {/* Enhanced feature indicators - More prominent but not button-like */}
             <motion.div
-              className="flex items-center justify-center space-x-16 pt-8"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 md:gap-16 pt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-sm shadow-accent/30"></div>
-                <span className="text-sm font-light text-white/70 uppercase tracking-[0.15em] whitespace-nowrap">AI Powered</span>
+                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em]">AI Powered</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent-secondary shadow-sm shadow-accent-secondary/30"></div>
-                <span className="text-sm font-light text-white/70 uppercase tracking-[0.15em]">Interactive</span>
+                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em]">Interactive</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-accent to-accent-secondary shadow-sm shadow-accent/30"></div>
-                <span className="text-sm font-light text-white/70 uppercase tracking-[0.15em]">Adaptive</span>
+                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em]">Adaptive</span>
               </div>
             </motion.div>
 
@@ -390,7 +390,7 @@ Sent via ilmCore contact form
 
             <div className="space-y-8">
               {/* Enhanced stats with better hierarchy */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { label: "Founded", value: "2025" },
                   { label: "Focus", value: "AI Education" },
@@ -562,14 +562,27 @@ Sent via ilmCore contact form
                     </div>
                   </div>
 
-                  {/* Location */}
+                  {/* Phone */}
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08]">
+                      <Phone className="w-5 h-5 text-white/50" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-meta text-tertiary mb-2">Phone</p>
+                      <a href="tel:+12129707400" className="block text-secondary hover:text-accent transition-colors">
+                        (212) 970-7400
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Address */}
                   <div className="flex items-start space-x-4">
                     <div className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08]">
                       <MapPin className="w-5 h-5 text-white/50" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <p className="text-meta text-tertiary mb-2">Location</p>
-                      <p className="text-secondary">Building Tomorrow's Education</p>
+                      <p className="text-meta text-tertiary mb-2">Address</p>
+                      <p className="text-secondary">2 Park Avenue, 20th Floor<br />New York, NY 10016</p>
                     </div>
                   </div>
                 </div>
