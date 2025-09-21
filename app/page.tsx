@@ -221,15 +221,15 @@ Sent via ilmCore contact form
             >
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-sm shadow-accent/30"></div>
-                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em]">AI Powered</span>
+                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em] whitespace-nowrap">AI Powered</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent-secondary shadow-sm shadow-accent-secondary/30"></div>
-                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em]">Interactive</span>
+                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em] whitespace-nowrap">Interactive</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-accent to-accent-secondary shadow-sm shadow-accent/30"></div>
-                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em]">Adaptive</span>
+                <span className="text-xs sm:text-sm font-light text-white/70 uppercase tracking-[0.15em] whitespace-nowrap">Adaptive</span>
               </div>
             </motion.div>
 
